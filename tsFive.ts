@@ -10,6 +10,20 @@
 // 4. Write a function to calculate each element in the same position from two arrays of integer. Assume both arrays
 // are of the same length.
 // a. Example : [1, 2, 3] + [3, 2, 1] → [4, 4, 4]
+function calculateElement(_arrOne: number[], _arrTwo: number[]): number[] {
+  let _newArr: number[] = [];
+  let _counter: number = 0;
+  while (_counter < _arrOne.length) {
+    _newArr.push(_arrOne[_counter] + _arrTwo[_counter]);
+    _counter++;
+  }
+  return _newArr;
+}
+
+let _fourOne: number[] = [1, 2, 3];
+let _fourTwo: number[] = [3, 2, 1];
+console.log(calculateElement(_fourOne, _fourTwo));
+
 // 5. Write a function that adds an element to the end of an array. However, the element should only be added if it is
 // not already in the array.
 // a. Example : arr = [1, 2, 3, 4], newElement = 4 → [1, 2, 3, 4]
