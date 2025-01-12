@@ -14,6 +14,29 @@
 // not already in the array.
 // a. Example : arr = [1, 2, 3, 4], newElement = 4 → [1, 2, 3, 4]
 // b. Example : arr = [1, 2, 3, 4], newElement = 7 → [1, 2, 3, 4, 7]
+function insertUnique(_arrNum: number[], _newEle: number): number[] {
+  let _newArr: number[] = _arrNum;
+  let _counter: number = 0;
+  let _duplicate: boolean = false;
+  while (_counter < _arrNum.length) {
+    if (_newEle == _arrNum[_counter]) {
+      _duplicate = true;
+    }
+    _counter++;
+  }
+  if (_duplicate) {
+    return _newArr;
+  } else {
+    _newArr.push(_newEle);
+    return _newArr;
+  }
+}
+
+let _arrFive: number[] = [1, 2, 3, 4];
+let _newElem: number = 4;
+console.log(insertUnique(_arrFive, _newElem));
+let _newElement: number = 7;
+console.log(insertUnique(_arrFive, _newElement));
 
 // Exercise
 
