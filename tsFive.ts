@@ -9,6 +9,22 @@
 
 // 3. Write a function from a given array of numbers and return the second smallest number
 // a. Example : numbers = [5, 3, 1, 7, 2, 6] → 2
+function secondSmallest(_arrSecSmallest: number[]): number {
+  let _firstSmallest: number = Math.min(..._arrSecSmallest);
+  let _newArr: number[] = [];
+  let _counter: number = 0;
+  while (_counter < _arrSecSmallest.length) {
+    if (_arrSecSmallest[_counter] != _firstSmallest) {
+      _newArr.push(_arrSecSmallest[_counter]);
+    }
+    _counter++;
+  }
+  let _secSmallest: number = Math.min(..._newArr);
+  return _secSmallest;
+}
+
+let _threeArray: number[] = [5, 3, 1, 7, 2, 6];
+console.log(secondSmallest(_threeArray));
 
 // 4. Write a function to calculate each element in the same position from two arrays of integer. Assume both arrays
 // are of the same length.
