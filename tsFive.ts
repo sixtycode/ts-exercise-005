@@ -133,6 +133,47 @@ console.log(duplicateFinder(_initDup));
 
 // 3. Write a function to find the difference in 2 given array
 // a. Example : arr1 = [1, 2, 3, 4, 5], arr2 = [3, 4, 5, 6, 7] → [1, 2, 6, 7]
+function differenceFinder(_arrFirst: number[], _arrSecond: number[]): number[] {
+  let _tempDistinct: number[] = _arrFirst;
+  let _counter: number = 0;
+  while (_counter < _arrSecond.length) {
+    _tempDistinct.push(_arrSecond[_counter]);
+    _counter++;
+  }
+
+  _counter = 0;
+  let _newDistinct: number[] = [];
+  while (_counter < _tempDistinct.length) {
+    let _counterTwo = _counter + 1;
+    let _isDuplicate: boolean = false;
+    while (_counterTwo < _tempDistinct.length) {
+      if (_tempDistinct[_counter] == _tempDistinct[_counterTwo]) {
+        _tempDistinct[_counterTwo] = -999;
+        _isDuplicate = true;
+      }
+      _counterTwo++;
+    }
+
+    if (_isDuplicate) {
+      _tempDistinct[_counter] = -999;
+    }
+    _counter++;
+  }
+
+  _counter = 0;
+  while (_counter < _tempDistinct.length) {
+    if (_tempDistinct[_counter] != -999) {
+      _newDistinct.push(_tempDistinct[_counter]);
+    }
+    _counter++;
+  }
+
+  return _newDistinct.sort((a, b) => a - b);
+}
+
+let _firstArray: number[] = [1, 2, 3, 4, 5];
+let _secondArray: number[] = [3, 4, 5, 6, 7];
+console.log(differenceFinder(_firstArray, _secondArray));
 
 // Exercise
 
