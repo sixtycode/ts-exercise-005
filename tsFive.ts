@@ -19,8 +19,7 @@ function secondSmallest(_arrSecSmallest: number[]): number {
     }
     _counter++;
   }
-  let _secSmallest: number = Math.min(..._newArr);
-  return _secSmallest;
+  return Math.min(..._newArr);
 }
 
 let _threeArray: number[] = [5, 3, 1, 7, 2, 6];
@@ -50,14 +49,14 @@ console.log(calculateElement(_fourOne, _fourTwo));
 function insertUnique(_arrNum: number[], _newEle: number): number[] {
   let _newArr: number[] = _arrNum;
   let _counter: number = 0;
-  let _duplicate: boolean = false;
+  let _isDuplicate: boolean = false;
   while (_counter < _arrNum.length) {
     if (_newEle == _arrNum[_counter]) {
-      _duplicate = true;
+      _isDuplicate = true;
     }
     _counter++;
   }
-  if (_duplicate) {
+  if (_isDuplicate) {
     return _newArr;
   } else {
     _newArr.push(_newEle);
@@ -140,7 +139,6 @@ function differenceFinder(_arrFirst: number[], _arrSecond: number[]): number[] {
     _tempDistinct.push(_arrSecond[_counter]);
     _counter++;
   }
-
   _counter = 0;
   let _newDistinct: number[] = [];
   while (_counter < _tempDistinct.length) {
@@ -153,13 +151,11 @@ function differenceFinder(_arrFirst: number[], _arrSecond: number[]): number[] {
       }
       _counterTwo++;
     }
-
     if (_isDuplicate) {
       _tempDistinct[_counter] = -999;
     }
     _counter++;
   }
-
   _counter = 0;
   while (_counter < _tempDistinct.length) {
     if (_tempDistinct[_counter] != -999) {
@@ -167,7 +163,6 @@ function differenceFinder(_arrFirst: number[], _arrSecond: number[]): number[] {
     }
     _counter++;
   }
-
   return _newDistinct.sort((a, b) => a - b);
 }
 
