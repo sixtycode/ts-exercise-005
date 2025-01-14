@@ -85,6 +85,19 @@ console.log(insertUnique(_arrFive, _newElement));
 
 // 1. Write a function that will combine 2 given array into one array
 // a. Example : arr1 = [1, 2, 3], arr2 = [4, 5, 6] → [1, 2, 3, 4, 5, 6]
+function combineTwo(_arrWan: number[], _arrTu: number[]): number[] {
+  let _newArr: number[] = _arrWan;
+  let _counter: number = 0;
+  while (_counter < _arrTu.length) {
+    _newArr.push(_arrTu[_counter]);
+    _counter++;
+  }
+  return _newArr;
+}
+
+let _kombinOne: number[] = [1, 2, 3];
+let _kombinTwo: number[] = [4, 5, 6];
+console.log(combineTwo(_kombinOne, _kombinTwo));
 
 // 2. Write a function to find duplicate values in an array
 // a. Example : arr = [1, 2, 2, 2, 3, 3, 4, 5, 5] → [2, 3, 5]
