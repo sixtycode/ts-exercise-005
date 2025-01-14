@@ -101,6 +101,35 @@ console.log(combineTwo(_kombinOne, _kombinTwo));
 
 // 2. Write a function to find duplicate values in an array
 // a. Example : arr = [1, 2, 2, 2, 3, 3, 4, 5, 5] → [2, 3, 5]
+function duplicateFinder(_inputArray: number[]): number[] {
+  let _dupArr: number[] = [];
+  let _counter: number = 0;
+  while (_counter < _inputArray.length) {
+    let _counterTwo: number = _counter + 1;
+    while (_counterTwo < _inputArray.length) {
+      if (_inputArray[_counter] == _inputArray[_counterTwo]) {
+        let _counterThree: number = 0;
+        let _isUnique: boolean = true;
+        while (_counterThree < _dupArr.length) {
+          if (_dupArr[_counterThree] == _inputArray[_counter]) {
+            _isUnique = false;
+          }
+          _counterThree++;
+        }
+        if (_isUnique) {
+          _dupArr.push(_inputArray[_counter]);
+        }
+        _counterTwo = _inputArray.length;
+      }
+      _counterTwo++;
+    }
+    _counter++;
+  }
+  return _dupArr;
+}
+
+let _initDup: number[] = [1, 2, 2, 2, 3, 3, 4, 5, 5];
+console.log(duplicateFinder(_initDup));
 
 // 3. Write a function to find the difference in 2 given array
 // a. Example : arr1 = [1, 2, 3, 4, 5], arr2 = [3, 4, 5, 6, 7] → [1, 2, 6, 7]
